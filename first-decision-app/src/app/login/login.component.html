@@ -1,0 +1,34 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="jumbotron bg-transparent text-center">
+    <div *ngIf="!user" class="card text-center">
+        <h3 class="card-header">Sistema de Abertura de Chamados</h3>
+        <div class="card-block">
+            <h4 class="card-title">Você não está logado!</h4>
+            <p class="card-text">Logar com:</p>
+        </div>
+        <a  target="_blank" onmouseover="" style="cursor: pointer;" (click)="signInWithFB()" class="long-share-btn facebook">
+            <i class="fa fa-facebook-square"></i> Facebook
+        </a>
+    </div>
+    <div *ngIf="user" class="card text-center">
+        <h2 class="card-header">Seja bem vindo, {{ user.name }}!</h2>
+        <h3 class="card-header">Sistema de Abertura de Chamados!</h3>
+        <div class="card-block"></div>
+        <img *ngIf="user.photoUrl" class="card-img-top img-responsive photo" src="{{ user.photoUrl }}" />
+        <div class="card-block">
+            <h4 class="card-title">{{ user.name }}</h4>
+            <p class="card-text">{{ user.email }}</p>
+            <p class="card-text">Logado via {{ user.provider }}</p>
+        </div>
+        <a (click)="signOut()" target="_blank" onmouseover="" style="cursor: pointer;"  class="long-share-btn out">
+            <i class="fa fa-sign-out"></i> Logout <i class="fa fa-bars"></i>
+        </a>              
+        <br><br>
+        <a (click)="redirect()" target="_blank" onmouseover="" style="cursor: pointer;" class="long-share-btn facebook">
+            Abertura de Chamados
+        </a>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,69 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="menu-bar">
+  <ul>
+      <li> <span>Olá, {{ user?.name }}!</span></li>
+  </ul>
+  <div class="user-info">
+    <a href="javascript:void(0)" (click)="goToCreateNew()" ><i class="fa fa-plus"></i> Novo</a>
+    <a href="javascript:void(0)" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
+  </div>
+</nav>
+<form (ngSubmit)="search()" [formGroup]="contactForm" class="filter-form">
+  <div class="form-group">
+    <label for="subject">Buscar por:</label>
+    <select formControlName="subject" class="form-control" (change)="onSubjectChange()" #subjectInput>
+      <option value="id">ID</option>
+      <option value="assunto">Assunto</option>
+    </select>
+    <label for="searchInput">Buscar:</label>
+    <input type="text" formControlName="searchInput" class="form-control" #searchInput (focus)="onSearchInputFocus()">
+    <button type="submit" class="btn btn-primary">Buscar</button>
+    <input type="hidden" for="email" formControlName="email"/>
+  </div>
+ 
+</form>
+<div *ngIf="exibeMsg" class="error-message">{{ textoMsg }}</div>
+<div class="tabela-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Departamento</th>
+          <th>Título do Problema</th>
+          <th>Descrição do Problema</th>
+          <th>Categoria do Problema</th>
+          <th>Prioridade</th>
+          <th>Status de Andamento</th>
+          <th>Data de Abertura</th>
+          <th>Data de Última Atualização</th>
+          <th>Feedback</th>
+          <th>Visualizar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dadosTabela">
+          <td>{{ item.id }}</td>
+          <td>{{ item.nome }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.departamento }}</td>
+          <td>{{ item.tituloProblema }}</td>
+          <td>{{ item.descricaoProblema }}</td>
+          <td>{{ item.categoriaProblema }}</td>
+          <td>{{ item.prioridade }}</td>
+          <td>{{ item.statusAndamento }}</td>
+          <td>{{ item.dataAbertura }}</td>
+          <td>{{ item.dataUltimaAtualizacao }}</td>
+          <td class="text-center">{{ item.feedback }}</td>
+          <td class="text-center"><a href="javascript:void(0)" (click)="goToViewTicket(item.id)"><i class="fa fa-search"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination">
+    <button [disabled]="paginaAtual === 1" (click)="previousPage()"><i class="fa fa-arrow-left"></i> Anterior</button>
+    <span>Página {{ paginaAtual }}</span>
+    <button [disabled]="totalRegistros <= itensPorPagina * paginaAtual" (click)="nextPage()">Próximo <i class="fa fa-arrow-right"></i></button>
+  </div>
+

@@ -1,0 +1,76 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="form-container">
+    <!-- menu-bar.component.html -->
+    <nav class="menu-bar">
+        <ul>
+            <li> <span>Olá, {{ userName }}</span></li>
+        </ul>
+        <div class="user-info">
+          <a href="javascript:void(0)" (click)="goToTable()"><i class="fa fa-list"></i> Lista</a>
+          <a href="javascript:void(0)" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
+        </div>
+      </nav>
+    <h2 class="form-title">Formulário de Abertura de Chamado</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" formControlName="nome" required readonly>
+        </div>
+        <div>
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" formControlName="email" required readonly>
+        </div>
+        <div>
+          <label for="departamento">Departamento:</label>
+          <input type="text" id="departamento" formControlName="departamento" required>
+        </div>
+        <div>
+          <label for="tituloProblema">Título do Problema:</label>
+          <input type="text" id="tituloProblema" formControlName="tituloProblema" required>
+        </div>
+        <div>
+          <label for="descricaoProblema">Descrição Detalhada do Problema:</label>
+          <textarea id="descricaoProblema" formControlName="descricaoProblema" required></textarea>
+        </div>
+        <div>
+          <label for="categoriaProblema">Categoria do Problema:</label>
+          <select id="categoriaProblema" formControlName="categoriaProblema" required>
+            <option value="Hardware">Hardware</option>
+            <option value="Software">Software</option>
+            <option value="Rede">Rede</option>
+          </select>
+        </div>
+        <div>
+          <label for="prioridade">Prioridade do Chamado:</label>
+          <select id="prioridade" formControlName="prioridade" required>
+            <option value="Alta">Alta</option>
+            <option value="Media">Média</option>
+            <option value="Baixa">Baixa</option>
+          </select>
+        </div>
+        <div>
+          <label for="statusAndamento">Status de Andamento:</label>
+          <input type="text" id="statusAndamento" formControlName="statusAndamento" required readonly>
+        </div>
+        <div class="error-row" *ngIf="mostrarErroGeral">
+            <span class="error-message">{{ mensagemErroGeral }}</span>
+        </div>
+        <div class="success-row" *ngIf="mostrarSucesso">
+          <span class="success-message">{{ mensagemSucesso }}</span>
+        </div>
+      
+        <div class="date-inputs">
+            <div>
+              <label for="dataAbertura">Data de Abertura:</label>
+              <input type="date" id="dataAbertura" formControlName="dataAbertura" readonly>
+            </div>
+            <div>
+              <label for="dataUltimaAtualizacao">Data de Última Atualização:</label>
+              <input type="date" id="dataUltimaAtualizacao" formControlName="dataUltimaAtualizacao" readonly>
+            </div>
+          </div>
+          <button type="submit" class="submit-button" [disabled]="isButtonDisabled"  [ngStyle]="{ 'background-color': buttonColor }" >Enviar</button>
+      </form>
+</div>
+  
+  

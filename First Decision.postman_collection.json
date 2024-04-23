@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "cca68045-fc4a-4cb2-bfeb-08ca32585680",
+		"name": "First Decision",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FirstDecicion Login Backend",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create Ticket Localhost",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Marcelo Boá\",\n    \"email\": \"marcelorosa1978@gmail.com\",\n    \"departamento\": \"TI\",\n    \"tituloProblema\": \"Problema com impressora\",\n    \"descricaoProblema\": \"A impressora não está imprimindo corretamente\",\n    \"categoriaProblema\": \"Hardware\",\n    \"prioridade\": \"Alta\",\n    \"statusAndamento\": \"Aberto\",\n    \"dataAbertura\": \"2024-04-19\",\n    \"dataUltimaAtualizacao\": \"2024-04-19\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/ticket/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"ticket",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Ticket Localhost",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"nome\": \"Marcelo Boá\",\n    \"email\": \"marcelorosa1978@gmail.com\",\n    \"departamento\": \"TI\",\n    \"tituloProblema\": \"Problema com impressora\",\n    \"descricaoProblema\": \"A impressora não está imprimindo corretamente\",\n    \"categoriaProblema\": \"Hardware\",\n    \"prioridade\": \"Alta\",\n    \"statusAndamento\": \"Aberto\",\n    \"dataAbertura\": \"2024-04-19\",\n    \"dataUltimaAtualizacao\": \"2024-04-19\",\n    \"feedback\": \"4\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/ticket/edit/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"ticket",
+						"edit",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ticket by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/ticket/get-by-id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"ticket",
+						"get-by-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

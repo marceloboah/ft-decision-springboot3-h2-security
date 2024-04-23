@@ -1,0 +1,80 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<div class="form-container" *ngIf="ticket">
+    <!-- menu-bar.component.html -->
+    <nav class="menu-bar">
+        <ul>
+            <li> <span>Olá, {{ userName }}</span></li>
+        </ul>
+        <div class="user-info">
+            <a href="javascript:void(0)" (click)="goToCreateNew()"><i class="fa fa-plus"></i> Novo</a>
+            <a href="javascript:void(0)" (click)="goToTable()"><i class="fa fa-list"></i> Lista</a>
+            <a href="javascript:void(0)" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
+        </div>
+    </nav>
+    <h2 class="form-title">Formulário de Abertura de Chamado</h2>
+    <input type="hidden" for="id" value="{{ticket.id}}"/>
+    
+    <div class="form-container-2">
+        <div class="form-field">
+            <label for="nome">Nome:</label>
+            <span>{{ ticket.nome }}</span>
+        </div>
+        <div class="form-field">
+            <label for="email">E-mail:</label>
+            <span>{{ ticket.email }}</span>
+        </div>
+        <div class="form-field">
+            <label for="departamento">Departamento:</label>
+            <span>{{ ticket.departamento }}</span>
+        </div>
+        <div class="form-field">
+            <label for="tituloProblema">Título do Problema:</label>
+            <span>{{ ticket.tituloProblema }}</span>
+        </div>
+        <div class="form-field">
+            <label for="descricaoProblema">Descrição Detalhada do Problema:</label>
+            <span>{{ ticket.descricaoProblema }}</span>
+        </div>
+        <div class="form-field">
+            <label for="categoriaProblema">Categoria do Problema:</label>
+            <span>{{ ticket.categoriaProblema }}</span>
+        </div>
+        <div class="form-field">
+            <label for="prioridade">Prioridade do Chamado:</label>
+            <span>{{ ticket.prioridade }}</span>
+        </div>
+        <div class="form-field">
+            <label for="statusAndamento">Status de Andamento:</label>
+            <span>{{ ticket.statusAndamento }}</span>
+        </div>
+        <div class="error-row" *ngIf="mostrarErroGeral">
+            <span class="error-message">{{ mensagemErroGeral }}</span>
+        </div>
+        <div class="success-row" *ngIf="mostrarSucesso">
+            <span class="success-message">{{ mensagemSucesso }}</span>
+        </div>
+        <div class="date-inputs">
+            <div class="form-field">
+                <label for="dataAbertura">Data de Abertura:</label>
+                <span>{{ ticket.dataAbertura }}</span>
+            </div>
+            <div class="form-field">
+                <label for="dataUltimaAtualizacao">Data de Última Atualização:</label>
+                <span>{{ ticket.dataUltimaAtualizacao }}</span>
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="statusAndamento">Feedback:</label>
+            <span>
+                <a href="javascript:void(0)" (click)="toRate(ticket.id,'1')"><i class="fa-regular fa-5x fa-face-angry"></i> </a>
+                <a href="javascript:void(0)" (click)="toRate(ticket.id,'2')"><i class="fa-regular fa-5x fa-face-frown"></i> </a>
+                <a href="javascript:void(0)" (click)="toRate(ticket.id,'3')"><i class="fa-regular fa-5x fa-face-meh"></i> </a>
+                <a href="javascript:void(0)" (click)="toRate(ticket.id,'4')"><i class="fa-regular fa-5x fa-face-laugh-beam"></i> </a>
+                <a href="javascript:void(0)" (click)="toRate(ticket.id,'5')"><i class="fa-regular fa-5x fa-face-grin-hearts"></i></a>
+            </span>
+        </div>
+            <button *ngIf="isButtonVisible" (click)="toFinish(ticket.id)" class="submit-button" [disabled]="isButtonDisabled" [ngStyle]="{ 'background-color': buttonColor }">Encerrar</button>
+    </div>
+
+</div>

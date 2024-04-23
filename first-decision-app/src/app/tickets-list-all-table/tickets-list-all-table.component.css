@@ -1,0 +1,177 @@
+
+/* menu-bar.component.css */
+.menu-bar {
+  background-color: #3b7ecb; /* Azul que combina com o formulário */
+  color: #121111; /* Cor do texto */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px; /* Bordas arredondadas */
+  font-weight: bold; /* Texto em negrito */
+}
+
+.menu-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.menu-bar ul li {
+  display: inline;
+  margin-right: 20px;
+  font-weight: bold; /* Texto em negrito */
+}
+
+.menu-bar ul li a {
+  color: #121111;
+  text-decoration: none;
+  
+}
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-right: 10px;
+}
+
+.user-info a {
+  color: #121111;
+  text-decoration: none;
+}
+
+.user-info a:not(:last-child) {
+  margin-right: 20px; /* Espaçamento entre os itens do menu */
+}
+
+/* Estilos para a div que envolve a tabela */
+.tabela-container {
+  margin: 20px; /* Margem ao redor da tabela */
+}
+
+/* Estilos para a tabela */
+table {
+  width: 100%; /* Tabela ocupa toda a largura da div */
+  border-collapse: collapse; /* Borda entre as células da tabela é colapsada */
+}
+
+/* Estilos para o cabeçalho da tabela */
+thead {
+  background-color: #f2f2f2; /* Cor de fundo do cabeçalho */
+}
+
+/* Estilos para as células do cabeçalho */
+th {
+  padding: 8px; /* Espaçamento interno das células */
+  text-align: left; /* Alinhamento do texto à esquerda */
+  border-bottom: 1px solid #ddd; /* Borda inferior das células */
+}
+
+/* Estilos para as células do corpo da tabela */
+td {
+  padding: 8px; /* Espaçamento interno das células */
+  text-align: left; /* Alinhamento do texto à esquerda */
+  border-bottom: 1px solid #ddd; /* Borda inferior das células */
+}
+
+/* Estilizar linhas alternadas da tabela */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Cor de fundo das linhas pares */
+}
+
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination span {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.filter-form {
+  display: flex;
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Centraliza os itens verticalmente */
+  margin-bottom: 20px;
+}
+
+.filter-form .form-group {
+  margin: 0 10px; /* Adicionado espaçamento horizontal */
+}
+
+.filter-form label {
+  font-weight: bold;
+}
+
+.filter-form button {
+  margin-top: 25px; /* Aumenta a margem superior para alinhar com os inputs */
+}
+
+.filter-form {
+  display: flex;
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Centraliza os itens verticalmente */
+  margin-bottom: 20px;
+}
+
+.filter-form .form-group {
+  margin-right: 30px; /* Adiciona espaçamento entre os itens */
+}
+
+.filter-form .form-group:last-child {
+  margin-right: 0;
+}
+
+.filter-form label {
+  font-weight: bold;
+  margin-right: 24px; 
+}
+
+
+.filter-form .form-control {
+  height: 30px;
+  width: 200px;
+  border-radius: 4px; 
+  margin-right: 24px; 
+}
+.filter-form .btn {
+  height: 33px; 
+  width: 90px;
+}
+
+.error-message {
+  text-align: center; 
+  background-color: #f05769; 
+  color: #0e0d0d; 
+  height: 50px;
+  padding-top: 26px;
+}
